@@ -10,6 +10,7 @@ namespace Bank_Accounts.Models
         [Required]
         public int Amount {get;set;}
         public DateTime CreatedAt {get;set;} = DateTime.Now;
+        public int UserId {get;set;}
         public User Creator {get;set;}
     }
 }

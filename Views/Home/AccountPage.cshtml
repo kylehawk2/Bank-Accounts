@@ -2,6 +2,7 @@
 @using Bank_Accounts.Models
 @model Transaction
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +12,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome, @Context.Session.GetSting("logged_in_user")</h1>
+    <h1>Welcome, @Context.Session.GetString("logged_in_username")</h1>
     <a href="/logout">Logout</a>
 
-    <h5>Current Balance</h5>
+    <h4>Current Balance</h4>
     <h6>@ViewBag.Balance</h6>
 
     Deposit/Withdraw
-    <form asp-action="transaction" asp-controller="Home" method="post">
+    <form asp-action="transaction" asp-controller="Home" method="POST">
         <input type="text" step="0.01" asp-for="Amount">
         <button type="submit">Submit</button>
         <span asp-validation-for="Amount"></span>

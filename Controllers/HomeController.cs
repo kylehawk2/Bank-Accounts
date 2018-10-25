@@ -66,7 +66,7 @@ namespace Bank_Accounts.Controllers
 
         [HttpPost]
         [Route("login")]
-        public IActionResult login(User user)
+        public IActionResult login(LoginUser user)
         {
             if(ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace Bank_Accounts.Controllers
                     ModelState.AddModelError("Email", "Invalid Email/Password");
                     return View("Login");
                 }
-                var hasher = new PasswordHasher<User>();
+                var hasher = new PasswordHasher<LoginUser>();
                 var result = hasher.VerifyHashedPassword(user, userindb.Password, user.Password);
 
                 if(result == 0)
@@ -99,7 +99,7 @@ namespace Bank_Accounts.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("Account/{id}")]
         public IActionResult ShowAccount(int id)
         {
@@ -128,9 +128,38 @@ namespace Bank_Accounts.Controllers
             return View("AccountPage");
         }
 
-        public IActionResult Error()
+        [HttpPost]
+        [Route("transaction")]
+        public IActionResult transaction(Transaction transaction)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            int? logged_in_user = HttpContext.Session.GetInt32("logged_in_userID");
+
+            transaction.UserId = (int)HttpContext.Session.GetInt32("logged_in_userID");
+            decimal relativeAmount = transaction.Amount * -1;
+            int logged_in_userid = (int)HttpContext.Session.GetInt32("logged_in_userID");
+
+            var current_user = dbContext.users.Include(user => user.Transactions).FirstOrDefault(user => user.UserId == logged_in_user);
+            var transactions = current_user.Transactions;
+            
+            decimal sum = 0;
+
+            foreach(var i in transactions)
+            {
+                sum += i.Amount;
+            }
+            if(relativeAmount > sum)
+            {
+                TempData["ErrorMessage"] = "Cannot withdraw more than you current balance!";
+                return Redirect($"Account/{logged_in_user}");
+            }
+            else
+            {
+                System.Console.WriteLine("Failed");
+            }
+            dbContext.Add(transaction);
+            dbContext.SaveChanges();
+
+            return Redirect($"Account/{logged_in_user}");
         }
 
         [HttpGet]
