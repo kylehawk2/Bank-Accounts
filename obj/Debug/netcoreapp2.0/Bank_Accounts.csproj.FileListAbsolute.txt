@@ -1,0 +1,11 @@
+C:\Users\Kyle\Documents\C#-.NET\Bank_Accounts\bin\Debug\netcoreapp2.0\Bank_Accounts.deps.json
+C:\Users\Kyle\Documents\C#-.NET\Bank_Accounts\bin\Debug\netcoreapp2.0\Bank_Accounts.runtimeconfig.json
+C:\Users\Kyle\Documents\C#-.NET\Bank_Accounts\bin\Debug\netcoreapp2.0\Bank_Accounts.runtimeconfig.dev.json
+C:\Users\Kyle\Documents\C#-.NET\Bank_Accounts\bin\Debug\netcoreapp2.0\Bank_Accounts.dll
+C:\Users\Kyle\Documents\C#-.NET\Bank_Accounts\bin\Debug\netcoreapp2.0\Bank_Accounts.pdb
+C:\Users\Kyle\Documents\C#-.NET\Bank_Accounts\obj\Debug\netcoreapp2.0\Bank_Accounts.csprojResolveAssemblyReference.cache
+C:\Users\Kyle\Documents\C#-.NET\Bank_Accounts\obj\Debug\netcoreapp2.0\Bank_Accounts.csproj.CoreCompileInputs.cache
+C:\Users\Kyle\Documents\C#-.NET\Bank_Accounts\obj\Debug\netcoreapp2.0\Bank_Accounts.AssemblyInfoInputs.cache
+C:\Users\Kyle\Documents\C#-.NET\Bank_Accounts\obj\Debug\netcoreapp2.0\Bank_Accounts.AssemblyInfo.cs
+C:\Users\Kyle\Documents\C#-.NET\Bank_Accounts\obj\Debug\netcoreapp2.0\Bank_Accounts.dll
+C:\Users\Kyle\Documents\C#-.NET\Bank_Accounts\obj\Debug\netcoreapp2.0\Bank_Accounts.pdb

@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Bank_Accounts.Models
+@model Transaction
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome, @Context.Session.GetSting("logged_in_user")</h1>
+    <a href="/logout">Logout</a>
+
+    <h5>Current Balance</h5>
+    <h6>@ViewBag.Balance</h6>
+
+    Deposit/Withdraw
+    <form asp-action="transaction" asp-controller="Home" method="post">
+        <input type="text" step="0.01" asp-for="Amount">
+        <button type="submit">Submit</button>
+        <span asp-validation-for="Amount"></span>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Amount</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Transaction transaction in @ViewBag.AllTransactions)
+            {
+                <tr>
+                    <td>@transaction.Amount</td>
+                    <td>@transaction.CreatedAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

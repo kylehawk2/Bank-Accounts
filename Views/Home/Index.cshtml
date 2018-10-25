@@ -1,0 +1,46 @@
+﻿@using Bank_Accounts.Models
+@model User
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <h3><a href="login">Already registered?</a></h3>
+    <form asp-action="Register" asp-controller="Home" method="POST">
+        <div class="form-group">
+            <label asp-for="First_Name">First Name</label>
+            <input type="text" asp-for="First_Name" class="form-control">
+            <span asp-validation-for="First_Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Last_Name">Last Name</label>
+            <input type="text" asp-for="Last_Name" class="form-control">
+            <span asp-validation-for="Last_Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input type="text" asp-for="Email" class="form-control">
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Password</label>
+            <input type="text" asp-for="Password" class="form-control">
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cpassword">Confirim Password</label>
+            <input type="text" asp-for="Cpassword" class="form-control">
+            <span asp-validation-for="Cpassword"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>
